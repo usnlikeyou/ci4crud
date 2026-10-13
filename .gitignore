@@ -124,5 +124,5 @@ _modules/*
 
 /results/
 /phpunit.xml
-env
+/env
 .env
