@@ -102,17 +102,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    foreach($dataPegawai as $k => $v){
+                    ?>
                     <tr>
-                        <td>1</td>
-                        <td>Nama Pegawai 1</td>
-                        <td>Pegawai1@example.com</td>
-                        <td>Finance</td>
-                        <td>Alamat Pegawai 1</td>
+                        <td></td>
+                        <td><?= $v['nama'] ?></td>
+                        <td><?= $v['email'] ?></td>
+                        <td><?= $v['bidang'] ?></td>
+                        <td><?= $v['alamat'] ?></td>
                         <td>
                             <button type="button" class="btn btn-warning btn-sm">Edit</button>
-                            <button type="button" class="btn-danger btn sm">Hapus</button>
+                            <button type="button" class="btn btn-danger btn-sm">Hapus</button>
                         </td>
                     </tr>
+                    <?php } ?>
                 </tbody>
              </table>
 
