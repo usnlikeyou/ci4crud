@@ -45,11 +45,15 @@ class Pegawai extends BaseController
             ],
         ];
         $validasi->setRules($aturan);
-        if($validasi->withRequest($this->request)->run()){
-            $nama = $this->request->getPost('nama');
-            $email = $this->request->getPost('email');
-            $bidang = $this->request->getPost('bidang');
-            $alamat = $this->request->getPost('alamat');
+        if ($validasi->withRequest($this->request)->run()) {
+            $data = [
+            'nama' => $this->request->getPost('nama'),
+            'email' => $this->request->getPost('email'),
+            'bidang' => $this->request->getPost('bidang'),
+            'alamat' => $this->request->getPost('alamat'),
+            ];
+
+            $this->model->save($data);
 
             $hasil['sukses'] = "Berhasil memasukan data";
             $hasil['error'] = true;

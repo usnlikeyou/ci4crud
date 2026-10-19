@@ -6,6 +6,6 @@ use CodeIgniter\Model;
 class ModelPegawai extends Model
 {
     protected $table = "pegawai";
-    protected $primaryKey = 'id';
+    protected $primaryKey = "id";
     protected $allowedFields = ['nama', 'email', 'bidang', 'alamat'];
 }
