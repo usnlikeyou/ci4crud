@@ -44,7 +44,7 @@
                     <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Data Pegawai</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close tombol-tutup" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <!-- alert isian error -->
@@ -68,7 +68,7 @@
                         <div class="mb-3 row">
                             <label for="inputBidang" class="col-sm-2 col-form-label">Bidang</label>
                             <div class="col-sm-10">
-                                <select id="InputBidang" class="form-select">
+                                <select id="inputBidang" class="form-select">
                                     <option value="Finance">Finance</option>
                                     <option value="Marketing">Marketing</option>
                                     <option value="HR">HR</option>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-secondary tombol-tutup" data-bs-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-primary" id="tombolSimpan">Simpan</button>
                     </div>
                 </div>
@@ -126,6 +126,18 @@
 
     <!-- SCRIPT TAMBAHAN -->
     <script>
+    function bersihkan(){
+        $('#inputNama').val('');
+        $('#inputEmail').val('');
+        $('#inputAlamat').val('');
+    }
+    $('.tombol-tutup').on('click',function(){
+        if($('.sukses').is(":visible")){
+            window.location.href = "<?php echo current_url(). "?" .$_SERVER['QUERY_STRING'] ?>";
+        }
+        $('.alert').hide();
+        bersihkan();
+    });
         $('#tombolSimpan').on('click',function(){
             var $nama = $('#inputNama').val();
             var $email = $('#inputEmail').val();
@@ -151,6 +163,7 @@
                         $('.error').hide();
                         $('.sukses').show();
                         $('.sukses').html($obj.sukses);
+                        bersihkan();
                     }
                 }
             });
