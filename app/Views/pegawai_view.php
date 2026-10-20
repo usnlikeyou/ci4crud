@@ -1,3 +1,8 @@
+<?php
+/** @var array $dataPegawai */
+/** @var int $nomor */
+/** @var \CodeIgniter\Pager\Pager $pager */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,7 +111,7 @@
                     foreach($dataPegawai as $k => $v){
                     ?>
                     <tr>
-                        <td></td>
+                        <td><?= ++$nomor; ?></td>
                         <td><?= $v['nama'] ?></td>
                         <td><?= $v['email'] ?></td>
                         <td><?= $v['bidang'] ?></td>
@@ -119,7 +124,17 @@
                     <?php } ?>
                 </tbody>
              </table>
+            <?php
+            $linkPagination = $pager->links();
+            // bentuk sederhananya, hilangkan tanpa // sebelum echo
+            // echo $linkPagination;
 
+            // berikut untuk bootstrapnya
+            $linkPagination = str_replace('<li class="active">','<li class="page-item active">', $linkPagination);
+            $linkPagination = str_replace('<li>','<li class="page-item">', $linkPagination);
+            $linkPagination = str_replace("<a", "<a class='page-link'", $linkPagination);
+            echo $linkPagination;
+            ?>
             </div>
         </div>
     </div>
